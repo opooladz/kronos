@@ -7,3 +7,6 @@ In this example, we show that it's possible to **jointly precondition all layers
 My theory is that this setup provides **more gradient samples** for performing **Lie group Spectral Stochastic Gradient Descent (SSGD)**. As a result, the whitening preconditioner becomes both more **general** (due to sampling across multiple weights) and more **refined** (due to more SSGD steps).
 
 Enjoy the memory savings—QQᵀ can be cached and reused at all times.
+
+
+[Imagenet](https://github.com/EliSchwartz/imagenet-sample-images) Samples Needed for code
