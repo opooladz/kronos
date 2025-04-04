@@ -116,11 +116,11 @@ class Kronos_sharedQ(torch.optim.Optimizer):
                 Q = self.shared_Qs[n_cols]
 
                 if torch.rand(1).item() < whitening_prob:
-                    Q = single_sided_whitening(torch.sign(g), Q, lr_param=group['lr_param'])
+                    Q = single_sided_whitening(g, Q, lr_param=group['lr_param'])
                     self.shared_Qs[n_cols] = Q
 
                 # Apply transformation
-                g = torch.sign(g) @ Q.T @ Q
+                g = g @ Q.T @ Q
                 if m < n:
                     g = g.T
                 g *= max(1, g.size(0) / g.size(1)) ** 0.5
